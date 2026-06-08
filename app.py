@@ -2,8 +2,8 @@ import random
 from flask import Flask, render_template, request, session, jsonify
 
 app = Flask(__name__)
-app.secret_key = "hangman_secret_key_2024"
-
+import os
+app.secret_key = os.environ.get("SECRET_KEY", "fallback_dev_key")
 WORDS = [
     {"word": "python",  "hint": "A popular programming language"},
     {"word": "galaxy",  "hint": "A system of millions of stars"},
